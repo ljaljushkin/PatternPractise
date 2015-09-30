@@ -1,0 +1,72 @@
+*~
+
+# CMake intermidiate files
+__cmake
+*.tlog
+
+
+*.idb
+*.cache
+*.pyc
+*.log
+
+
+# OS generated files #
+######################
+.DS_Store*
+ehthumbs.db
+Icon?
+Thumbs.db
+
+## MacOS files
+*.mode1v3
+*.mode2v3
+*.perspectivev3
+*.pbxuser
+.DS_Store
+xcuserdata/
+project.xcworkspace/
+_build
+
+# Eclipse specific files/directories
+.classpath
+.project
+.settings
+.metadata
+
+# IntelliJ specific files/directories
+out
+.idea
+*.ipr
+*.iws
+*.iml
+local.properties
+atlassian-ide-plugin.xml
+__pycache__
+
+# Build output directies
+target
+build
+repo
+
+# Editor Files #
+################
+*~
+*.swp
+
+# Gradle Files #
+################
+.gradle
+.m2
+
+# Temporary custom files #
+##########################
+Installer/tools/uiTransformer.jar
+Installer/bindings
+Installer/plugins
+Installer/rt
+Installer/samples
+
+
+__MACOSX
+._.DS_Store
