@@ -4,7 +4,8 @@ public class Rectangle extends Shape {
 
     private int x, y, w, h; // x,t left down corner
 
-    public Rectangle(int x, int y, int w, int h) {
+    public Rectangle(IDrawer d, int x, int y, int w, int h) {
+        super(d);
         this.x = x;
         this.y = y;
         this.w = w;

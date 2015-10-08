@@ -6,22 +6,11 @@ public class Circle extends Shape {
     private int x;
     private int y;
 
-    public Circle(int r, int x, int y) {
+    public Circle(IDrawer d, int r, int x, int y) {
+        super(d);
         this.r = r;
         this.x = x;
         this.y = y;
-    }
-
-    public int getR() {
-        return r;
-    }
-
-    public int getX() {
-        return x;
-    }
-
-    public int getY() {
-        return y;
     }
 
     public void draw() {

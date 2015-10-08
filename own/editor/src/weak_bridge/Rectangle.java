@@ -1,0 +1,24 @@
+package weak_bridge;
+
+public class Rectangle extends Shape {
+
+    private int x;
+    private int y;
+    private int w;
+    private int h; // x,t left down corner
+
+    public Rectangle(int x, int y, int w, int h) {
+        this.x = x;
+        this.y = y;
+        this.w = w;
+        this.h = h;
+    }
+
+    @Override
+    void draw(IDrawer d) {
+        d.drawLine(x, y, x + w, y);
+        d.drawLine(x, y, x, y + h);
+        d.drawLine(x, y + h, x + w, y + h);
+        d.drawLine(x + w, y, x + w, y + h);
+    }
+}
