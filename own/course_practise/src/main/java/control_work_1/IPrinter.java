@@ -1,7 +1,9 @@
 package control_work_1;
 
 public interface IPrinter {
-    void print(String data);
+//    String class_name = null;
 
-    void print(char data);
+    void print(String data, IPrinter p);
+
+    void print(char data, IPrinter p);
 }

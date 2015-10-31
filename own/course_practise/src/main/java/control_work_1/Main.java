@@ -14,7 +14,7 @@ public class Main {
 
         PrinterDefault printerDefault = new PrinterDefault();
         PrinterSpecial_Composition printerSpecial_composition = new PrinterSpecial_Composition();
-        PrinterSpecial_Generalization printerSpecial_generalization= new PrinterSpecial_Generalization();
+        PrinterSpecial_Generalization printerSpecial_generalization = new PrinterSpecial_Generalization();
 
         text.print(printerDefault);
         text.print(printerSpecial_composition);

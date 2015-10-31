@@ -6,7 +6,7 @@ public class Word implements IPrintable {
 
     @Override
     public void print(IPrinter printer) {
-        printer.print(data);
+        printer.print(data, printer);
     }
 
     public Word(String data) {

@@ -2,7 +2,7 @@ package strong_bridge;
 
 public interface IDrawer {
 
-    //TODO: only public methods
+    // only public methods - as is in Java for interfaces
     //TODO: only straight line, what about curve?
     //TODO: int -> float -> double
 
