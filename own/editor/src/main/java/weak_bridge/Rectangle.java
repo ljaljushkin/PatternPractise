@@ -7,7 +7,11 @@ public class Rectangle extends Shape {
     private int w;
     private int h; // x,t left down corner
 
-    public Rectangle(int x, int y, int w, int h) {
+    public Rectangle() {
+        super();
+    }
+
+    public void initialize(int x, int y, int w, int h) {
         this.x = x;
         this.y = y;
         this.w = w;

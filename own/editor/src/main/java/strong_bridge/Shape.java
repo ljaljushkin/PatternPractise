@@ -1,11 +1,20 @@
 package strong_bridge;
 
-public abstract class Shape {
+public abstract class Shape implements Cloneable {
 
-    private IDrawer d = null;
+    protected IDrawer d = null;
 
     public Shape(IDrawer d) {
         this.d = d;
+    }
+
+    protected Shape clone() throws CloneNotSupportedException {
+        Shape copy;
+        copy = (Shape) super.clone();
+
+        // deep clone member fields here TODO: example?
+
+        return copy;
     }
 
     abstract void draw();
