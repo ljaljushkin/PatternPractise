@@ -1,10 +1,12 @@
 package headfirst.proxy.virtualproxy;
 
-import java.net.*;
-import java.awt.*;
-import java.awt.event.*;
 import javax.swing.*;
-import java.util.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.net.MalformedURLException;
+import java.net.URL;
+import java.util.Enumeration;
+import java.util.Hashtable;
 
 public class ImageProxyTestDrive {
 	ImageComponent imageComponent;
@@ -12,11 +14,11 @@ public class ImageProxyTestDrive {
     JMenuBar menuBar;
     JMenu menu;
 	Hashtable cds = new Hashtable();
- 
+
 	public static void main (String[] args) throws Exception {
 		ImageProxyTestDrive testDrive = new ImageProxyTestDrive();
 	}
- 
+
 	public ImageProxyTestDrive() throws Exception{
 		cds.put("Ambient: Music for Airports","http://images.amazon.com/images/P/B000003S2K.01.LZZZZZZZ.jpg");
         cds.put("Buddha Bar","http://images.amazon.com/images/P/B00009XBYK.01.LZZZZZZZ.jpg");
@@ -35,7 +37,7 @@ public class ImageProxyTestDrive {
 		for(Enumeration e = cds.keys(); e.hasMoreElements();) {
 			String name = (String)e.nextElement();
         	JMenuItem menuItem = new JMenuItem(name);
-        	menu.add(menuItem); 
+        	menu.add(menuItem);
         	menuItem.addActionListener(new ActionListener() {
           		  public void actionPerformed(ActionEvent event) {
            		     imageComponent.setIcon(new ImageProxy(getCDUrl(event.getActionCommand())));
@@ -43,9 +45,9 @@ public class ImageProxyTestDrive {
            	      }
         	});
 		}
- 		
+
 		// set up frame and menus
- 
+
 		Icon icon = new ImageProxy(initialURL);
 		imageComponent = new ImageComponent(icon);
 		frame.getContentPane().add(imageComponent);

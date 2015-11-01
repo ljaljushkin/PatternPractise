@@ -1,17 +1,17 @@
 package headfirst.proxy.gumball;
 
-import java.rmi.*;
-import java.rmi.server.*;
- 
+import java.rmi.RemoteException;
+import java.rmi.server.UnicastRemoteObject;
+
 public class GumballMachine
-		extends UnicastRemoteObject implements GumballMachineRemote 
+		extends UnicastRemoteObject implements GumballMachineRemote
 {
 	State soldOutState;
 	State noQuarterState;
 	State hasQuarterState;
 	State soldState;
 	State winnerState;
- 
+
 	State state = soldOutState;
 	int count = 0;
  	String location;
@@ -26,19 +26,19 @@ public class GumballMachine
 		this.count = numberGumballs;
  		if (numberGumballs > 0) {
 			state = noQuarterState;
-		} 
+		}
 		this.location = location;
 	}
- 
- 
+
+
 	public void insertQuarter() {
 		state.insertQuarter();
 	}
- 
+
 	public void ejectQuarter() {
 		state.ejectQuarter();
 	}
- 
+
 	public void turnCrank() {
 		state.turnCrank();
 		state.dispense();
@@ -47,7 +47,7 @@ public class GumballMachine
 	void setState(State state) {
 		this.state = state;
 	}
- 
+
 	void releaseBall() {
 		System.out.println("A gumball comes rolling out the slot...");
 		if (count != 0) {
@@ -59,19 +59,19 @@ public class GumballMachine
 		this.count = count;
 		state = noQuarterState;
 	}
- 
+
 	public int getCount() {
 		return count;
 	}
- 
+
     public State getState() {
         return state;
     }
- 
+
     public String getLocation() {
         return location;
     }
-  
+
     public State getSoldOutState() {
         return soldOutState;
     }
@@ -91,7 +91,7 @@ public class GumballMachine
     public State getWinnerState() {
         return winnerState;
     }
- 
+
 	public String toString() {
 		StringBuffer result = new StringBuffer();
 		result.append("\nMighty Gumball, Inc.");

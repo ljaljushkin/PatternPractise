@@ -1,21 +1,21 @@
 package headfirst.iterator.dinermergercafe;
- 
+
 import java.util.Iterator;
-  
+
 public class DinerMenuIterator implements Iterator {
 	MenuItem[] list;
 	int position = 0;
- 
+
 	public DinerMenuIterator(MenuItem[] list) {
 		this.list = list;
 	}
- 
+
 	public Object next() {
 		MenuItem menuItem = list[position];
 		position = position + 1;
 		return menuItem;
 	}
- 
+
 	public boolean hasNext() {
 		if (position >= list.length || list[position] == null) {
 			return false;
@@ -23,7 +23,7 @@ public class DinerMenuIterator implements Iterator {
 			return true;
 		}
 	}
-  
+
 	public void remove() {
 		if (position <= 0) {
 			throw new IllegalStateException

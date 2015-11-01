@@ -20,7 +20,7 @@ public class GumballMachineTestDrive {
 
 		GumballMonitor monitor = new GumballMonitor(gumballMachine);
 
- 
+
 		System.out.println(gumballMachine);
 
 		gumballMachine.insertQuarter();

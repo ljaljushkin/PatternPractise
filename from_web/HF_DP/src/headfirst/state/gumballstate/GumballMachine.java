@@ -1,15 +1,15 @@
 package headfirst.state.gumballstate;
 
 public class GumballMachine {
- 
+
 	State soldOutState;
 	State noQuarterState;
 	State hasQuarterState;
 	State soldState;
- 
+
 	State state = soldOutState;
 	int count = 0;
- 
+
 	public GumballMachine(int numberGumballs) {
 		soldOutState = new SoldOutState(this);
 		noQuarterState = new NoQuarterState(this);
@@ -19,17 +19,17 @@ public class GumballMachine {
 		this.count = numberGumballs;
  		if (numberGumballs > 0) {
 			state = noQuarterState;
-		} 
+		}
 	}
- 
+
 	public void insertQuarter() {
 		state.insertQuarter();
 	}
- 
+
 	public void ejectQuarter() {
 		state.ejectQuarter();
 	}
- 
+
 	public void turnCrank() {
 		state.turnCrank();
 		state.dispense();
@@ -38,18 +38,18 @@ public class GumballMachine {
 	void setState(State state) {
 		this.state = state;
 	}
- 
+
 	void releaseBall() {
 		System.out.println("A gumball comes rolling out the slot...");
 		if (count != 0) {
 			count = count - 1;
 		}
 	}
- 
+
 	int getCount() {
 		return count;
 	}
- 
+
 	void refill(int count) {
 		this.count = count;
 		state = noQuarterState;
@@ -74,7 +74,7 @@ public class GumballMachine {
     public State getSoldState() {
         return soldState;
     }
- 
+
 	public String toString() {
 		StringBuffer result = new StringBuffer();
 		result.append("\nMighty Gumball, Inc.");

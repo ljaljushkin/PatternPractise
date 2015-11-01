@@ -1,18 +1,18 @@
 package headfirst.iterator.dinermergercafe;
 
 import java.util.Iterator;
-  
+
 public class Waitress {
 	Menu pancakeHouseMenu;
 	Menu dinerMenu;
 	Menu cafeMenu;
- 
+
 	public Waitress(Menu pancakeHouseMenu, Menu dinerMenu, Menu cafeMenu) {
 		this.pancakeHouseMenu = pancakeHouseMenu;
 		this.dinerMenu = dinerMenu;
 		this.cafeMenu = cafeMenu;
 	}
- 
+
 	public void printMenu() {
 		Iterator pancakeIterator = pancakeHouseMenu.createIterator();
 		Iterator dinerIterator = dinerMenu.createIterator();
@@ -25,7 +25,7 @@ public class Waitress {
 		System.out.println("\nDINNER");
 		printMenu(cafeIterator);
 	}
- 
+
 	private void printMenu(Iterator iterator) {
 		while (iterator.hasNext()) {
 			MenuItem menuItem = (MenuItem)iterator.next();
@@ -34,14 +34,14 @@ public class Waitress {
 			System.out.println(menuItem.getDescription());
 		}
 	}
- 
+
 	public void printVegetarianMenu() {
 		System.out.println("\nVEGETARIAN MENU\n---------------");
 		printVegetarianMenu(pancakeHouseMenu.createIterator());
 		printVegetarianMenu(dinerMenu.createIterator());
 		printVegetarianMenu(cafeMenu.createIterator());
 	}
- 
+
 	public boolean isItemVegetarian(String name) {
 		Iterator pancakeIterator = pancakeHouseMenu.createIterator();
 		if (isVegetarian(name, pancakeIterator)) {

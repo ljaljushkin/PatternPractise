@@ -9,16 +9,16 @@ public class HomeTheaterFacade {
 	TheaterLights lights;
 	Screen screen;
 	PopcornPopper popper;
- 
-	public HomeTheaterFacade(Amplifier amp, 
-				 Tuner tuner, 
-				 DvdPlayer dvd, 
-				 CdPlayer cd, 
-				 Projector projector, 
+
+	public HomeTheaterFacade(Amplifier amp,
+				 Tuner tuner,
+				 DvdPlayer dvd,
+				 CdPlayer cd,
+				 Projector projector,
 				 Screen screen,
 				 TheaterLights lights,
 				 PopcornPopper popper) {
- 
+
 		this.amp = amp;
 		this.tuner = tuner;
 		this.dvd = dvd;
@@ -28,7 +28,7 @@ public class HomeTheaterFacade {
 		this.lights = lights;
 		this.popper = popper;
 	}
- 
+
 	public void watchMovie(String movie) {
 		System.out.println("Get ready to watch a movie...");
 		popper.on();
@@ -44,8 +44,8 @@ public class HomeTheaterFacade {
 		dvd.on();
 		dvd.play(movie);
 	}
- 
- 
+
+
 	public void endMovie() {
 		System.out.println("Shutting movie theater down...");
 		popper.off();

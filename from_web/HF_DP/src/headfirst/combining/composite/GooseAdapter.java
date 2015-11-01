@@ -6,7 +6,7 @@ public class GooseAdapter implements Quackable {
 	public GooseAdapter(Goose goose) {
 		this.goose = goose;
 	}
- 
+
 	public void quack() {
 		goose.honk();
 	}

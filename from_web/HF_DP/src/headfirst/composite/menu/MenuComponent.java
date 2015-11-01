@@ -1,9 +1,7 @@
 package headfirst.composite.menu;
 
-import java.util.*;
-
 public abstract class MenuComponent {
-   
+
 	public void add(MenuComponent menuComponent) {
 		throw new UnsupportedOperationException();
 	}
@@ -13,7 +11,7 @@ public abstract class MenuComponent {
 	public MenuComponent getChild(int i) {
 		throw new UnsupportedOperationException();
 	}
-  
+
 	public String getName() {
 		throw new UnsupportedOperationException();
 	}
@@ -26,7 +24,7 @@ public abstract class MenuComponent {
 	public boolean isVegetarian() {
 		throw new UnsupportedOperationException();
 	}
-  
+
 	public void print() {
 		throw new UnsupportedOperationException();
 	}

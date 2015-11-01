@@ -8,7 +8,7 @@ public class GooseAdapter implements Quackable {
 		this.goose = goose;
 		observable = new Observable(this);
 	}
- 
+
 	public void quack() {
 		goose.honk();
 		notifyObservers();

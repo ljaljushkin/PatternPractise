@@ -5,16 +5,16 @@ public class CdPlayer {
 	int currentTrack;
 	Amplifier amplifier;
 	String title;
-	
+
 	public CdPlayer(String description, Amplifier amplifier) {
 		this.description = description;
 		this.amplifier = amplifier;
 	}
- 
+
 	public void on() {
 		System.out.println(description + " on");
 	}
- 
+
 	public void off() {
 		System.out.println(description + " off");
 	}
@@ -23,7 +23,7 @@ public class CdPlayer {
 		title = null;
 		System.out.println(description + " eject");
 	}
- 
+
 	public void play(String title) {
 		this.title = title;
 		currentTrack = 0;
@@ -32,7 +32,7 @@ public class CdPlayer {
 
 	public void play(int track) {
 		if (title == null) {
-			System.out.println(description + " can't play track " + currentTrack + 
+			System.out.println(description + " can't play track " + currentTrack +
 					", no cd inserted");
 		} else {
 			currentTrack = track;
@@ -44,11 +44,11 @@ public class CdPlayer {
 		currentTrack = 0;
 		System.out.println(description + " stopped");
 	}
- 
+
 	public void pause() {
 		System.out.println(description + " paused \"" + title + "\"");
 	}
- 
+
 	public String toString() {
 		return description;
 	}

@@ -1,9 +1,9 @@
 package headfirst.composite.menuiterator;
 
-import java.util.*;
+import java.util.Iterator;
 
 public abstract class MenuComponent {
-   
+
 	public void add(MenuComponent menuComponent) {
 		throw new UnsupportedOperationException();
 	}
@@ -13,7 +13,7 @@ public abstract class MenuComponent {
 	public MenuComponent getChild(int i) {
 		throw new UnsupportedOperationException();
 	}
-  
+
 	public String getName() {
 		throw new UnsupportedOperationException();
 	}
@@ -28,7 +28,7 @@ public abstract class MenuComponent {
 	}
 
 	public abstract Iterator createIterator();
- 
+
 	public void print() {
 		throw new UnsupportedOperationException();
 	}

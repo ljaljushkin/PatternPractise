@@ -23,7 +23,7 @@ public class StatisticsDisplay implements Observer, DisplayElement {
 			if (temp > maxTemp) {
 				maxTemp = temp;
 			}
- 
+
 			if (temp < minTemp) {
 				minTemp = temp;
 			}

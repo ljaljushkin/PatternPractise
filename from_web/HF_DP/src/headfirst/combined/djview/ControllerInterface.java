@@ -1,5 +1,5 @@
 package headfirst.combined.djview;
-  
+
 public interface ControllerInterface {
 	void start();
 	void stop();

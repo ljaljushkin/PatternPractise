@@ -1,17 +1,19 @@
 package headfirst.proxy.javaproxy;
- 
-import java.lang.reflect.*;
- 
-public class OwnerInvocationHandler implements InvocationHandler { 
+
+import java.lang.reflect.InvocationHandler;
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
+
+public class OwnerInvocationHandler implements InvocationHandler {
 	PersonBean person;
- 
+
 	public OwnerInvocationHandler(PersonBean person) {
 		this.person = person;
 	}
- 
-	public Object invoke(Object proxy, Method method, Object[] args) 
+
+	public Object invoke(Object proxy, Method method, Object[] args)
 			throws IllegalAccessException {
-  
+
 		try {
 			if (method.getName().startsWith("get")) {
 				return method.invoke(person, args);
@@ -19,10 +21,10 @@ public class OwnerInvocationHandler implements InvocationHandler {
 				throw new IllegalAccessException();
 			} else if (method.getName().startsWith("set")) {
 				return method.invoke(person, args);
-			} 
+			}
         } catch (InvocationTargetException e) {
             e.printStackTrace();
-        } 
+        }
 		return null;
 	}
 }

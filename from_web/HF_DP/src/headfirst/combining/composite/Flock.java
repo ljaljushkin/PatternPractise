@@ -1,15 +1,15 @@
 package headfirst.combining.composite;
 
-import java.util.Iterator;
 import java.util.ArrayList;
+import java.util.Iterator;
 
 public class Flock implements Quackable {
 	ArrayList quackers = new ArrayList();
- 
+
 	public void add(Quackable quacker) {
 		quackers.add(quacker);
 	}
- 
+
 	public void quack() {
 		Iterator iterator = quackers.iterator();
 		while (iterator.hasNext()) {
@@ -17,7 +17,7 @@ public class Flock implements Quackable {
 			quacker.quack();
 		}
 	}
- 
+
 	public String toString() {
 		return "Flock of Quackers";
 	}

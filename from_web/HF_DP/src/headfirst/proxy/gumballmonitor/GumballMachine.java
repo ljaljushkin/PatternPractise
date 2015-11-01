@@ -6,11 +6,11 @@ public class GumballMachine {
 	State hasQuarterState;
 	State soldState;
 	State winnerState;
- 
+
 	State state = soldOutState;
 	int count = 0;
  	String location;
- 
+
 	public GumballMachine(String location, int count) {
 		soldOutState = new SoldOutState(this);
 		noQuarterState = new NoQuarterState(this);
@@ -21,18 +21,18 @@ public class GumballMachine {
 		this.count = count;
  		if (count > 0) {
 			state = noQuarterState;
-		} 
+		}
 		this.location = location;
 	}
- 
+
 	public void insertQuarter() {
 		state.insertQuarter();
 	}
- 
+
 	public void ejectQuarter() {
 		state.ejectQuarter();
 	}
- 
+
 	public void turnCrank() {
 		state.turnCrank();
 		state.dispense();
@@ -41,14 +41,14 @@ public class GumballMachine {
 	void setState(State state) {
 		this.state = state;
 	}
- 
+
 	void releaseBall() {
 		System.out.println("A gumball comes rolling out the slot...");
 		if (count != 0) {
 			count = count - 1;
 		}
 	}
- 
+
 	public int getCount() {
 		return count;
 	}
@@ -61,11 +61,11 @@ public class GumballMachine {
     public State getState() {
         return state;
     }
- 
+
     public String getLocation() {
         return location;
     }
- 
+
     public State getSoldOutState() {
         return soldOutState;
     }
@@ -85,7 +85,7 @@ public class GumballMachine {
     public State getWinnerState() {
         return winnerState;
     }
- 
+
 	public String toString() {
 		StringBuffer result = new StringBuffer();
 		result.append("\nMighty Gumball, Inc.");

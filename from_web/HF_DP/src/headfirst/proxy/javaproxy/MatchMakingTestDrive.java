@@ -1,22 +1,22 @@
 package headfirst.proxy.javaproxy;
 
-import java.lang.reflect.*;
-import java.util.*;
+import java.lang.reflect.Proxy;
+import java.util.Hashtable;
 
 public class MatchMakingTestDrive {
 	Hashtable datingDB = new Hashtable();
- 	
+
 	public static void main(String[] args) {
 		MatchMakingTestDrive test = new MatchMakingTestDrive();
 		test.drive();
 	}
- 
+
 	public MatchMakingTestDrive() {
 		initializeDatabase();
 	}
 
 	public void drive() {
-		PersonBean joe = getPersonFromDatabase("Joe Javabean"); 
+		PersonBean joe = getPersonFromDatabase("Joe Javabean");
 		PersonBean ownerProxy = getOwnerProxy(joe);
 		System.out.println("Name is " + ownerProxy.getName());
 		ownerProxy.setInterests("bowling, Go");
@@ -41,15 +41,15 @@ public class MatchMakingTestDrive {
 	}
 
 	PersonBean getOwnerProxy(PersonBean person) {
- 		
-        return (PersonBean) Proxy.newProxyInstance( 
+
+        return (PersonBean) Proxy.newProxyInstance(
             	person.getClass().getClassLoader(),
             	person.getClass().getInterfaces(),
                 new OwnerInvocationHandler(person));
 	}
 
 	PersonBean getNonOwnerProxy(PersonBean person) {
-		
+
         return (PersonBean) Proxy.newProxyInstance(
             	person.getClass().getClassLoader(),
             	person.getClass().getInterfaces(),

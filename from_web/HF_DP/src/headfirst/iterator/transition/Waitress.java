@@ -1,15 +1,16 @@
 package headfirst.iterator.transition;
-import java.util.*;
-  
-     
+import java.util.ArrayList;
+import java.util.Iterator;
+
+
 public class Waitress {
 	ArrayList menus;
-     
-  
+
+
 	public Waitress(ArrayList menus) {
 		this.menus = menus;
 	}
-   
+
 	public void printMenu() {
 		Iterator menuIterator = menus.iterator();
 		while(menuIterator.hasNext()) {
@@ -17,7 +18,7 @@ public class Waitress {
 			printMenu(menu.createIterator());
 		}
 	}
-   
+
 	void printMenu(Iterator iterator) {
 		while (iterator.hasNext()) {
 			MenuItem menuItem = (MenuItem)iterator.next();

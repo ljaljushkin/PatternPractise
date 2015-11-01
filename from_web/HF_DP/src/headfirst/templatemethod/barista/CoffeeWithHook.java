@@ -1,17 +1,19 @@
 package headfirst.templatemethod.barista;
 
-import java.io.*;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
 
 public class CoffeeWithHook extends CaffeineBeverageWithHook {
- 
+
 	public void brew() {
 		System.out.println("Dripping Coffee through filter");
 	}
- 
+
 	public void addCondiments() {
 		System.out.println("Adding Sugar and Milk");
 	}
- 
+
 	public boolean customerWantsCondiments() {
 
 		String answer = getUserInput();
@@ -22,7 +24,7 @@ public class CoffeeWithHook extends CaffeineBeverageWithHook {
 			return false;
 		}
 	}
- 
+
 	private String getUserInput() {
 		String answer = null;
 
