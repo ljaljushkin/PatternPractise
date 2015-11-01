@@ -1,0 +1,29 @@
+package strong_bridge.shape;
+
+import strong_bridge.drawer.IDrawer;
+
+public class Circle extends Shape {
+
+    private int r;
+    private int x;
+    private int y;
+
+    public Circle(IDrawer d) {
+        super(d);
+    }
+
+    @Override
+    public Shape clone() throws CloneNotSupportedException {
+        return new Circle(d);
+    }
+
+    public void initialize(int r, int x, int y) {
+        this.r = r;
+        this.x = x;
+        this.y = y;
+    }
+
+    public void draw() {
+        super.drawEllipse(x, y, r, r);
+    }
+}

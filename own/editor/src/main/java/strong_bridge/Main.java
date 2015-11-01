@@ -1,16 +1,23 @@
 package strong_bridge;
 
+import strong_bridge.drawer.ConsoleDrawer;
+import strong_bridge.drawer.SwingDrawer;
+import strong_bridge.shape.Circle;
+import strong_bridge.shape.Rectangle;
+import strong_bridge.shape.Shape;
+import strong_bridge.shape.ShapeCollection;
+
 public class Main {
 
     public static void main(String[] args) throws CloneNotSupportedException {
 
         ShapeCollection shapeCollection = new ShapeCollection();
 
-        DrawerConsole drawerConsole = new DrawerConsole();
-        DrawerGraphic drawerGraphic = new DrawerGraphic();
+        ConsoleDrawer consoleDrawer = new ConsoleDrawer();
+        SwingDrawer swingDrawer = new SwingDrawer();
 
-        Rectangle rectangle_prototype = new Rectangle(drawerGraphic);
-        Circle circle_prototype = new Circle(drawerGraphic);
+        Rectangle rectangle_prototype = new Rectangle(swingDrawer);
+        Circle circle_prototype = new Circle(swingDrawer);
 
 
         Rectangle r1 = (Rectangle) rectangle_prototype.clone();

@@ -1,5 +1,11 @@
 package weak_bridge;
 
+import weak_bridge.drawer.DrawerDefault;
+import weak_bridge.shape.Circle;
+import weak_bridge.shape.Rectangle;
+import weak_bridge.shape.Shape;
+import weak_bridge.shape.ShapeCollection;
+
 public class Main {
 
     public static void main(String[] args) throws CloneNotSupportedException {
