@@ -8,6 +8,11 @@ public class Rectangle extends Shape {
         super(d);
     }
 
+    @Override
+    protected Shape clone() throws CloneNotSupportedException {
+        return new Rectangle(d);
+    }
+
     public void initialize(int x, int y, int w, int h) {
         this.x = x;
         this.y = y;

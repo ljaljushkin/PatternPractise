@@ -10,6 +10,11 @@ public class Circle extends Shape {
         super(d);
     }
 
+    @Override
+    protected Shape clone() throws CloneNotSupportedException {
+        return new Circle(d);
+    }
+
     public void initialize(int r, int x, int y) {
         this.r = r;
         this.x = x;
