@@ -4,5 +4,5 @@ project(":own/course_practise").name = "course_practise"
 include "own/editor"
 project(":own/editor").name = "editor"
 
-include "own/from_web"
-project(":own/from_web").name = "from_web"
+include "from_web"
+project(":from_web").name = "from_web"

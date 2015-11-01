@@ -1,6 +1,9 @@
 package java_listener;
 
-public class StatisticsDisplay implements DataListener, DisplayElement {
+import java.util.Observable;
+import java.util.Observer;
+
+public class StatisticsDisplay implements Observer, DisplayElement {
     private float maxTemp = 0.0f;
     private float minTemp = 200;
     private float tempSum = 0.0f;
@@ -9,7 +12,8 @@ public class StatisticsDisplay implements DataListener, DisplayElement {
 
     public StatisticsDisplay(Initiator weatherData) {
         this.weatherData = weatherData;
-        weatherData.registerListener(this);
+//        weatherData.registerListener(this);
+        weatherData.addObserver(this);
     }
 
     public void display() {
@@ -17,19 +21,38 @@ public class StatisticsDisplay implements DataListener, DisplayElement {
                 + "/" + maxTemp + "/" + minTemp);
     }
 
+//    @Override
+//    public void someoneUpdateData(float temp, float humidity, float pressure) {
+//        tempSum += temp;
+//        numReadings++;
+//
+//        if (temp > maxTemp) {
+//            maxTemp = temp;
+//        }
+//
+//        if (temp < minTemp) {
+//            minTemp = temp;
+//        }
+//
+//        display();
+//    }
+
     @Override
-    public void someoneUpdateData(float temp, float humidity, float pressure) {
-        tempSum += temp;
-        numReadings++;
+    public void update(Observable observable, Object arg) {
+        if (observable instanceof Initiator) {
+            float temp = ((Initiator) observable).getTemperature();
+            tempSum += temp;
+            numReadings++;
 
-        if (temp > maxTemp) {
-            maxTemp = temp;
+            if (temp > maxTemp) {
+                maxTemp = temp;
+            }
+
+            if (temp < minTemp) {
+                minTemp = temp;
+            }
+
+            display();
         }
-
-        if (temp < minTemp) {
-            minTemp = temp;
-        }
-
-        display();
     }
 }

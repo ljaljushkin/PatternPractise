@@ -1,22 +1,23 @@
 package java_listener;
 
-public class ForecastDisplay implements DataListener, DisplayElement {
+import java.util.Observable;
+import java.util.Observer;
+
+public class ForecastDisplay implements Observer, DisplayElement {
     private float currentPressure = 29.92f;
     private float lastPressure;
     private Initiator weatherData;
 
-    public ForecastDisplay(Initiator weatherData) {
-        this.weatherData = weatherData;
-        weatherData.registerListener(this);
+    public ForecastDisplay(Observable observable) {
+        observable.addObserver(this);
     }
 
-    @Override
-    public void someoneUpdateData(float temp, float humidity, float pressure) {
-        lastPressure = currentPressure;
-        currentPressure = pressure;
+//    public ForecastDisplay(Initiator weatherData) {
+//        this.weatherData = weatherData;
+//        weatherData.registerListener(this);
+//    }
 
-        display();
-    }
+
 
     public void display() {
         System.out.print(this.getClass().getSimpleName() + "-----> Forecast: ");
@@ -30,4 +31,20 @@ public class ForecastDisplay implements DataListener, DisplayElement {
     }
 
 
+    @Override
+    public void update(Observable observable, Object arg) {
+        if (observable instanceof Initiator) {
+            Initiator weatherData = (Initiator)observable;
+            lastPressure = currentPressure;
+            currentPressure = weatherData.getPressure();
+            display();
+        }
+    }
+//    @Override
+//    public void someoneUpdateData(float temp, float humidity, float pressure) {
+//        lastPressure = currentPressure;
+//        currentPressure = pressure;
+//
+//        display();
+//    }
 }

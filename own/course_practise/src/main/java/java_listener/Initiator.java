@@ -2,36 +2,33 @@ package java_listener;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Observable;
 
 // Someone who says "Hello"
 // Someone who says update "Data"
-class Initiator implements HelloSpeaker, DataUpdater {
+class Initiator extends Observable{
 
-    private List<HelloListener> helloListeners = new ArrayList<HelloListener>();
-    private List<DataListener> dataListeners = new ArrayList<DataListener>();
+    public float getTemperature() {
+        return temperature;
+    }
+
+    public float getHumidity() {
+        return humidity;
+    }
 
     private float temperature;
     private float humidity;
     private float pressure;
 
-    @Override
-    public void registerListener(HelloListener toAdd) {
-        helloListeners.add(toAdd);
-    }
-
-    @Override
-    public void removeListener(HelloListener toRemove) {
-        helloListeners.remove(toRemove);
-    }
-
-    @Override
-    public void sayHello() {
-        System.out.println(this.getClass().getSimpleName() + "----> Hello!!");
-
+//    @Override
+//    public void sayHello() {
+//        setChanged();
+//        System.out.println(this.getClass().getSimpleName() + "----> Hello!!");
+//        notifyObservers();
         // Notify everybody that may be interested.
-        for (HelloListener hl : helloListeners)
-            hl.someoneSaidHello();
-    }
+//        for (HelloListener hl : helloListeners)
+//            hl.someoneSaidHello();
+//    }
 
     public void setMeasurements(float temperature, float humidity, float pressure) {
         System.out.println(this.getClass().getSimpleName() + "----> Changed data! " + temperature + " - " + humidity + " - " + pressure);
@@ -42,23 +39,19 @@ class Initiator implements HelloSpeaker, DataUpdater {
     }
 
     public void measurementsChanged() {
-        updateData();
+        setChanged();
+        notifyObservers();
+//        updateData();
     }
 
-    @Override
-    public void registerListener(DataListener toAdd) {
-        dataListeners.add(toAdd);
-    }
+//    @Override
+//    public void updateData() {
+//        for (DataListener listener : dataListeners) {
+//            listener.someoneUpdateData(temperature, humidity, pressure);
+//        }
+//    }
 
-    @Override
-    public void removeListener(DataListener toRemove) {
-        dataListeners.remove(toRemove);
-    }
-
-    @Override
-    public void updateData() {
-        for (DataListener listener : dataListeners) {
-            listener.someoneUpdateData(temperature, humidity, pressure);
-        }
+    public float getPressure() {
+        return pressure;
     }
 }

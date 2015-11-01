@@ -10,16 +10,18 @@ public class Main {
         StatisticsDisplay statisticsDisplay = new StatisticsDisplay(initiator);
         ForecastDisplay forecastDisplay = new ForecastDisplay(initiator);
 
-        initiator.registerListener(responder);
-        initiator.registerListener(jubilantResponder);
-
-        initiator.sayHello();  // Prints "Hello!!!" and "Hello there..."
-        initiator.removeListener(responder);
-        initiator.sayHello();
+//        initiator.registerListener(responder);
+//        initiator.registerListener(jubilantResponder);
+//
+//        initiator.sayHello();  // Prints "Hello!!!" and "Hello there..."
+//        initiator.removeListener(responder);
+//        initiator.sayHello();
 
         initiator.setMeasurements(80, 65, 30.4f);
+
+        initiator.deleteObserver(statisticsDisplay);
         initiator.setMeasurements(82, 70, 29.2f);
 
-        initiator.removeListener(statisticsDisplay);
+
     }
 }
