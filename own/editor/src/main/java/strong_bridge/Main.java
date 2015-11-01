@@ -6,18 +6,23 @@ public class Main {
 
         ShapeCollection shapeCollection = new ShapeCollection();
 
-        DrawerDefault drawerDefault = new DrawerDefault();
+        DrawerConsole drawerConsole = new DrawerConsole();
+        DrawerGraphic drawerGraphic = new DrawerGraphic();
 
-        Rectangle rectangle_prototype = new Rectangle(drawerDefault);
-        Circle circle_prototype = new Circle(drawerDefault);
+        Rectangle rectangle_prototype = new Rectangle(drawerGraphic);
+        Circle circle_prototype = new Circle(drawerGraphic);
 
 
         Rectangle r1 = (Rectangle) rectangle_prototype.clone();
-        r1.initialize(0, 0, 10, 10);
+        r1.initialize(0, 0, 100, 100);
         shapeCollection.add(r1);
 
+        Rectangle r2 = (Rectangle) rectangle_prototype.clone();
+        r1.initialize(100, 100, 0, 100);
+        shapeCollection.add(r2);
+
         Circle c1 = (Circle) circle_prototype.clone();
-        c1.initialize(0, 10, 10);
+        c1.initialize(0, 100, 100);
         shapeCollection.add(c1);
 
         for (Shape shape : shapeCollection.getShapes()) {
