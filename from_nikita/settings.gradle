@@ -1,0 +1,2 @@
+include "myproject"
+project(":myproject").name = "myproject"
