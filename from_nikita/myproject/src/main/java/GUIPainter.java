@@ -19,16 +19,14 @@ public class GUIPainter implements IPainter {
         graphicsContext.clearRect(0, 0, 512, 400);
     }
 
-    public void changeScale(double x, double y, FigureCollection collection) {
+    public void changeScale(double x, double y) {
         clearCanvas();
         graphicsContext.scale(x, y);
-        collection.redrawCollection(this);
     }
 
-    public void changeAlpha(double alpha, FigureCollection collection) {
+    public void changeAlpha(double alpha) {
         clearCanvas();
         graphicsContext.setGlobalAlpha(alpha);
-        collection.redrawCollection(this);
     }
 
     public void drawLine(int x1, int y1, int x2, int y2) {

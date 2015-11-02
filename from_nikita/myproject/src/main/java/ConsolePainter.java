@@ -1,5 +1,11 @@
 public class ConsolePainter implements IPainter {
 
+    public void changeScale(double x, double y) {
+    }
+
+    public void changeAlpha(double alpha) {
+    }
+
     public void drawLine(int x1, int y1, int x2, int y2) {
         System.out.println("Line painted at : " + x1 + "," + y1 + " : " + x2 + "," + y2);
     }

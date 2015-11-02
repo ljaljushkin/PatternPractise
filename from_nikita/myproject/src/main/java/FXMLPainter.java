@@ -23,6 +23,14 @@ public class FXMLPainter implements IPainter, Initializable {
         System.out.println("draw rectangle");
     }
 
+    public void changeScale(double x, double y) {
+
+    }
+
+    public void changeAlpha(double alpha) {
+
+    }
+
     public void drawLine(int x1, int y1, int x2, int y2) {
         //gc.strokeLine(x1, y1, x2, y2);
         System.out.println("Line painted at : " + x1 + "," + y1 + " : " + x2 + "," + y2);

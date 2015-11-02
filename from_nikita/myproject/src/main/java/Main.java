@@ -73,7 +73,8 @@ public class Main extends Application {
                 double x = Double.parseDouble(scaleX.getText());
                 double y = Double.parseDouble(scaleY.getText());
                 System.out.println("SCALE : " + x + ":" + y);
-                guiPainter.changeScale(x, y, collection);
+                guiPainter.changeScale(x, y);
+                collection.redrawCollection(guiPainter);
             }
         });
 
@@ -82,7 +83,8 @@ public class Main extends Application {
             public void handle(MouseEvent event) {
                 double doubleAlpha = Double.parseDouble(alpha.getText());
                 System.out.println("ALPHA : " + doubleAlpha);
-                guiPainter.changeAlpha(doubleAlpha, collection);
+                guiPainter.changeAlpha(doubleAlpha);
+                collection.redrawCollection(guiPainter);
             }
         });
 
@@ -106,5 +108,6 @@ public class Main extends Application {
             figure.draw(guiPainter);
             figure.draw(consolePainter);
         }
+
     }
 }
