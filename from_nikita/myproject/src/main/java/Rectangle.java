@@ -1,4 +1,3 @@
-
 public class Rectangle extends AbstractFigure {
 
     private int x, y, width, height;
@@ -15,12 +14,14 @@ public class Rectangle extends AbstractFigure {
     }
 
     @Override
-    public Rectangle clone()throws CloneNotSupportedException {
+    public Rectangle clone() throws CloneNotSupportedException {
         return new Rectangle();
     }
 
     @Override
     void draw(IPainter painter) {
         painter.drawRectangle(x, y, width, height);
-    };
+    }
+
+    ;
 }

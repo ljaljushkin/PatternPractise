@@ -7,9 +7,13 @@ public class GUIPainter implements IPainter {
 
     private GraphicsContext graphicsContext;
 
-    public GUIPainter() { graphicsContext = canvas.getGraphicsContext2D(); }
+    public GUIPainter() {
+        graphicsContext = canvas.getGraphicsContext2D();
+    }
 
-    public Canvas getCanvas() { return canvas; }
+    public Canvas getCanvas() {
+        return canvas;
+    }
 
     public void clearCanvas() {
         graphicsContext.clearRect(0, 0, 512, 400);

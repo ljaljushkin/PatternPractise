@@ -1,7 +1,7 @@
-
 public abstract class AbstractFigure {
 
-    public AbstractFigure() { }
+    public AbstractFigure() {
+    }
 
     public abstract AbstractFigure clone() throws CloneNotSupportedException;
 
