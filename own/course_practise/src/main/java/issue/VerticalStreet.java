@@ -32,5 +32,8 @@ public abstract class VerticalStreet extends Street {
         return map.get(V_HOME_2);
     }
 
-    abstract File getRedHome_1();
+    abstract File getRedHome_1(); // visitor
+    двойная диспетчиризация
+            многомерная
+    реализуется с классическим
 }

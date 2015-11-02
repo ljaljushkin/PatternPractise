@@ -8,7 +8,7 @@ class LittlePanel extends JPanel {
 
     JButton btnOne = new JButton("Yes");
     JButton btnTwo = new JButton("No");
-    private LordListener listener;
+//    private LordListener listener;
 
     public LittlePanel() {
 

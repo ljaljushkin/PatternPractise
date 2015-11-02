@@ -9,6 +9,6 @@ public class PrinterDefault implements IPrinter {
 
     @Override
     public void print(char data, IPrinter p) {
-        System.out.println(p.getClass().getSimpleName() + ": " + data);
+        System.out.println(this.getClass().getSimpleName() + ": " + data);
     }
 }

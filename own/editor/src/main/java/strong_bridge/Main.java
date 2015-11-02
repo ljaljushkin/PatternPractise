@@ -81,7 +81,7 @@ public class Main extends Application {
             public void handle(MouseEvent event) {
                 double x = Double.parseDouble(scaleX.getText());
                 double y = Double.parseDouble(scaleY.getText());
-                System.out.println("SCALE : " + x + ":" + y);
+                System.out.println("Changed SCALE : " + x + ":" + y);
                 javaFXDrawer.changeScale(x, y);
                 shapeCollection.redraw();
             }
@@ -91,7 +91,7 @@ public class Main extends Application {
             @Override
             public void handle(MouseEvent event) {
                 double doubleAlpha = Double.parseDouble(alpha.getText());
-                System.out.println("ALPHA : " + doubleAlpha);
+                System.out.println("changed ALPHA : " + doubleAlpha);
                 javaFXDrawer.changeAlpha(doubleAlpha);
                 shapeCollection.redraw();
             }

@@ -26,7 +26,7 @@ class MightyFrame extends JFrame {
         this.setDefaultCloseOperation(EXIT_ON_CLOSE);
         this.setResizable(false);
 
-        littleSoldier.addLordListener(new LordListener() {
+        littleSoldier.addLordListener(new ILordListener() {
 
             @Override
             public void displayMessage(String text) {
