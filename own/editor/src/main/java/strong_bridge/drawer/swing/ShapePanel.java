@@ -1,4 +1,4 @@
-package strong_bridge.drawer;
+package strong_bridge.drawer.swing;
 
 import javax.swing.*;
 import java.awt.*;

@@ -1,4 +1,6 @@
-package strong_bridge.drawer;
+package strong_bridge.drawer.swing;
+
+import strong_bridge.drawer.IDrawer;
 
 import javax.swing.*;
 import java.awt.*;
@@ -44,6 +46,16 @@ public class SwingDrawer implements IDrawer {
     //TODO: Ellipse = complex shape!
     public void drawEllipse(int x, int y, int r1, int r2) {
         System.out.println("drawEllipse: (" + x + ":" + y + ")" + " r1=" + r1 + " r2=" + r2);
+    }
+
+    @Override
+    public void drawRectangle(int x, int y, int width, int height) {
+
+    }
+
+    @Override
+    public void drawTriangle(int x1, int y1, int x2, int y2, int x3, int y3) {
+
     }
 
     public void fillPoly() {

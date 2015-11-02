@@ -8,13 +8,13 @@ public class Circle extends Shape {
     private int x;
     private int y;
 
-    public Circle(IDrawer d) {
-        super(d);
+    public Circle(IDrawer drawer) {
+        super(drawer);
     }
 
     @Override
     public Shape clone() throws CloneNotSupportedException {
-        return new Circle(d);
+        return new Circle(drawer);
     }
 
     public void initialize(int r, int x, int y) {

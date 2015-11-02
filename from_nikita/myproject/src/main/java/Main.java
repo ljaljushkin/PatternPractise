@@ -106,6 +106,5 @@ public class Main extends Application {
             figure.draw(guiPainter);
             figure.draw(consolePainter);
         }
-
     }
 }

@@ -6,13 +6,13 @@ public class Rectangle extends Shape {
 
     private int x, y, w, h; // x,t left down corner
 
-    public Rectangle(IDrawer d) {
-        super(d);
+    public Rectangle(IDrawer drawer) {
+        super(drawer);
     }
 
     @Override
     public Shape clone() throws CloneNotSupportedException {
-        return new Rectangle(d);
+        return new Rectangle(drawer);
     }
 
     public void initialize(int x, int y, int w, int h) {
@@ -24,9 +24,6 @@ public class Rectangle extends Shape {
 
     @Override
     public void draw() {
-        super.drawLine(x, y, x + w, y);
-        super.drawLine(x, y, x, y + h);
-        super.drawLine(x, y + h, x + w, y + h);
-        super.drawLine(x + w, y, x + w, y + h);
+        super.drawRectangle(x, y, w, h);
     }
 }
