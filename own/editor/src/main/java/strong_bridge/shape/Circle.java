@@ -13,7 +13,7 @@ public class Circle extends Shape {
     }
 
     @Override
-    public Shape clone() throws CloneNotSupportedException {
+    protected Shape clone(IDrawer drawer) throws CloneNotSupportedException {
         return new Circle(drawer);
     }
 

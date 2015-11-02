@@ -4,13 +4,18 @@ import strong_bridge.drawer.IDrawer;
 
 public abstract class Shape {
 
-    protected IDrawer drawer;
+    private IDrawer drawer;
 
     public Shape(IDrawer drawer) {
         this.drawer = drawer;
     }
 
-    protected abstract Shape clone() throws CloneNotSupportedException;
+    protected abstract Shape clone(IDrawer drawer) throws CloneNotSupportedException;
+
+    // factory method
+    public Shape clone() throws CloneNotSupportedException {
+        return clone(drawer);
+    }
 
     public abstract void draw();
 
