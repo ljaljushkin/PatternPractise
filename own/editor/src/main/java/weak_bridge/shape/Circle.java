@@ -10,10 +10,10 @@ public class Circle extends Shape {
         super();
     }
 
-    public void initialize(int x, int y, int r) {
+    public void initialize(int r, int x, int y) {
+        this.r = r;
         this.x = x;
         this.y = y;
-        this.r = r;
     }
 
     public void draw(IDrawer d) {

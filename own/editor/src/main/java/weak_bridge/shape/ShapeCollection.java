@@ -1,5 +1,7 @@
 package weak_bridge.shape;
 
+import weak_bridge.drawer.IDrawer;
+
 import java.util.ArrayList;
 import java.util.Collection;
 
@@ -17,6 +19,12 @@ public class ShapeCollection {
 
     public Collection<Shape> getShapes() {
         return data;
+    }
+
+    public void redraw(IDrawer d) {
+        for (Shape shape : data) {
+            shape.draw(d);
+        }
     }
 }
 
