@@ -48,6 +48,7 @@ public class Main extends Application {
         Rectangle rectangle_prototype_gui = new Rectangle(javaFXDrawer);
         Circle circle_prototype_gui = new Circle(javaFXDrawer);
         Triangle triangle_prototype_gui = new Triangle(javaFXDrawer);
+        CompositeShape compositeShape_prototype_gui = new CompositeShape(javaFXDrawer);
 
         Rectangle rectangle_prototype_console = new Rectangle(consoleDrawer);
         Circle circle_prototype_console = new Circle(consoleDrawer);
@@ -62,11 +63,16 @@ public class Main extends Application {
 
         Circle c1 = (Circle) circle_prototype_gui.clone();
         c1.initialize(50, 200, 300);
-        shapeCollection.add(c1);
+//        shapeCollection.add(c1);
 
         Triangle t1 = (Triangle) triangle_prototype_gui.clone();
         t1.initialize(200, 100, 10, 10, 100, 100);
-        shapeCollection.add(t1);
+//        shapeCollection.add(t1);
+
+        CompositeShape cs1 = (CompositeShape) compositeShape_prototype_gui.clone();
+        cs1.add(c1);
+        cs1.add(t1);
+        shapeCollection.add(cs1);
 
 //        shapeCollection.changeDrawer(consoleDrawer);
         for (Shape shape : shapeCollection.getShapes()) {

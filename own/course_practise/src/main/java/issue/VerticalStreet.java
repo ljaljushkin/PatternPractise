@@ -33,7 +33,7 @@ public abstract class VerticalStreet extends Street {
     }
 
     abstract File getRedHome_1(); // visitor
-    двойная диспетчиризация
-            многомерная
-    реализуется с классическим
+//    двойная диспетчиризация
+//            многомерная
+//    реализуется с классическим
 }

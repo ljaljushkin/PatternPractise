@@ -20,7 +20,7 @@ public class Triangle extends Shape {
     }
 
     @Override
-    public Shape clone() throws CloneNotSupportedException {
+    public Shape clone(IDrawer drawer) throws CloneNotSupportedException {
         return new Triangle(drawer);
     }
 
