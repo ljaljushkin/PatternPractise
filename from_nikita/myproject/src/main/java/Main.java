@@ -22,8 +22,9 @@ public class Main extends Application {
     public void start(Stage primaryStage) throws Exception {
         primaryStage.setTitle("Paint v 2.0");
 
+        Canvas canvas = new Canvas(512, 400);
         ConsolePainter consolePainter = new ConsolePainter();
-        final GUIPainter guiPainter = new GUIPainter();
+        final GUIPainter guiPainter = new GUIPainter(canvas);
         final FigureCollection collection = new FigureCollection();
 
         Group root = new Group();
@@ -40,7 +41,6 @@ public class Main extends Application {
         column3.setPercentWidth(10);
         gridPane.getColumnConstraints().addAll(column1, column2, column3);
 
-        Canvas canvas = guiPainter.getCanvas();
         final TextArea scaleX = new TextArea("1");
         final TextArea scaleY = new TextArea("1");
         final TextArea alpha = new TextArea("1");
@@ -73,8 +73,7 @@ public class Main extends Application {
                 double x = Double.parseDouble(scaleX.getText());
                 double y = Double.parseDouble(scaleY.getText());
                 System.out.println("SCALE : " + x + ":" + y);
-                guiPainter.changeScale(x, y);
-                collection.redrawCollection(guiPainter);
+                guiPainter.changeScale(x, y, collection);
             }
         });
 
@@ -83,15 +82,16 @@ public class Main extends Application {
             public void handle(MouseEvent event) {
                 double doubleAlpha = Double.parseDouble(alpha.getText());
                 System.out.println("ALPHA : " + doubleAlpha);
-                guiPainter.changeAlpha(doubleAlpha);
-                collection.redrawCollection(guiPainter);
+                guiPainter.changeAlpha(doubleAlpha, collection);
             }
         });
 
         Rectangle rectangle_prototype = new Rectangle();
         Ellipse ellipse_prototype = new Ellipse();
+        Triangle triangle_prototype = new Triangle();
         Rectangle new_rectangle;
         Ellipse new_ellipse;
+        Triangle new_triangle;
 
         for (int i = 20; i < 30; i++) {
             new_rectangle = rectangle_prototype.clone();
@@ -100,14 +100,21 @@ public class Main extends Application {
             new_ellipse = ellipse_prototype.clone();
             new_ellipse.init(i * 3, i * 2, i * 9, i * 6);
 
+            new_triangle = triangle_prototype.clone();
+            new_triangle.init(i * 3, i * 3, i * 5, i * 3, i * 3, i * 5);
+
             collection.addFigure(new_rectangle);
             collection.addFigure(new_ellipse);
+            collection.addFigure(new_triangle);
         }
 
-        for (AbstractFigure figure : collection.getFigureList()) {
-            figure.draw(guiPainter);
-            figure.draw(consolePainter);
-        }
-
+        new_triangle = triangle_prototype.clone();
+        new_triangle.init(10, 10, 100, 10, 10, 100);
+        Decorator decorated_triangle = new DottedLineDecorator(new RedBorderDecorator(new RedBorderDecorator(new_triangle)));
+        collection.addFigure(decorated_triangle);
+        guiPainter.draw(collection);
+        consolePainter.draw(collection);
+        //collection.draw(guiPainter);
+        //collection.draw(consolePainter);
     }
 }

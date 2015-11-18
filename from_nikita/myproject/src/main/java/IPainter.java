@@ -1,9 +1,14 @@
+import javafx.scene.paint.Color;
 
 public interface IPainter {
 
-    void changeScale(double x, double y);
+    void changeScale(double x, double y, FigureCollection collection);
 
-    void changeAlpha(double alpha);
+    void changeAlpha(double alpha, FigureCollection collection);
+
+    void setBorderColor(String color);
+
+    void draw(IFigure figure);
 
     void drawLine(int x1, int y1, int x2, int y2);
 

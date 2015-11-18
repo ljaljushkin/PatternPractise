@@ -23,11 +23,13 @@ public class FXMLPainter implements IPainter, Initializable {
         System.out.println("draw rectangle");
     }
 
-    public void changeScale(double x, double y) {
+    public void changeScale(double x, double y, FigureCollection collection) { }
 
-    }
+    public void changeAlpha(double alpha, FigureCollection collection) { }
 
-    public void changeAlpha(double alpha) {
+    public void setBorderColor(String color) { }
+
+    public void draw(IFigure figure) {
 
     }
 

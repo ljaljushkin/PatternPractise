@@ -1,5 +1,5 @@
 
-public class Triangle extends AbstractFigure{
+public class Triangle implements IFigure {
 
     private int x1, y1, x2, y2, x3, y3;
 
@@ -16,13 +16,11 @@ public class Triangle extends AbstractFigure{
         this.y3 = y3;
     }
 
-    @Override
     public Triangle clone()throws CloneNotSupportedException {
         return new Triangle();
     }
 
-    @Override
-    void draw(IPainter painter) {
+    public void draw(IPainter painter) {
         painter.drawTriangle(x1, y1, x2, y2, x3, y3);
     };
 }

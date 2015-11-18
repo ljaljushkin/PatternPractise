@@ -1,15 +1,15 @@
 import java.util.ArrayList;
 import java.util.Collection;
 
-public class FigureCollection {
+public class FigureCollection implements IFigure {
 
-    Collection<AbstractFigure> collection = new ArrayList<AbstractFigure>();
+    private Collection<IFigure> collection = new ArrayList<IFigure>();
 
-    public void addFigure(AbstractFigure figure) {
+    public void addFigure(IFigure figure) {
         collection.add(figure);
     }
 
-    public void deleteFigure(AbstractFigure figure) {
+    public void deleteFigure(IFigure figure) {
         collection.remove(figure);
     }
 
@@ -17,12 +17,16 @@ public class FigureCollection {
         collection.remove(index);
     }
 
-    Collection<AbstractFigure> getFigureList() {
+    Collection<IFigure> getFigureList() {
         return collection;
     }
 
-    public void redrawCollection(IPainter painter) {
-        for (AbstractFigure figure : collection) {
+    public FigureCollection clone() throws CloneNotSupportedException {
+        return new FigureCollection();
+    }
+
+    public void draw(IPainter painter) {
+        for (IFigure figure : collection) {
             figure.draw(painter);
         }
     }

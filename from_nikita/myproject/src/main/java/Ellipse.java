@@ -1,5 +1,5 @@
 
-public class Ellipse extends AbstractFigure{
+public class Ellipse implements IFigure {
 
     private int x, y, rx, ry;
 
@@ -14,13 +14,11 @@ public class Ellipse extends AbstractFigure{
         this.ry = ry;
     }
 
-    @Override
     public Ellipse clone()throws CloneNotSupportedException {
         return new Ellipse();
     }
 
-    @Override
-    void draw(IPainter painter) {
+    public void draw(IPainter painter) {
         painter.drawEllipse(x, y, rx, ry);
     };
 }

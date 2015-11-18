@@ -1,5 +1,5 @@
 
-public class Rectangle extends AbstractFigure {
+public class Rectangle implements IFigure {
 
     private int x, y, width, height;
 
@@ -14,13 +14,11 @@ public class Rectangle extends AbstractFigure {
         this.height = height;
     }
 
-    @Override
     public Rectangle clone()throws CloneNotSupportedException {
         return new Rectangle();
     }
 
-    @Override
-    void draw(IPainter painter) {
+    public void draw(IPainter painter) {
         painter.drawRectangle(x, y, width, height);
     };
 }
