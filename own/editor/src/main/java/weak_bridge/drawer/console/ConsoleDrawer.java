@@ -1,5 +1,6 @@
 package weak_bridge.drawer.console;
 
+import javafx.scene.paint.Color;
 import weak_bridge.drawer.IDrawer;
 
 public class ConsoleDrawer implements IDrawer {
@@ -26,4 +27,20 @@ public class ConsoleDrawer implements IDrawer {
     public void fillPoly() {
 
     }
+
+    @Override
+    public void setBorderColor(Color color) {
+
+    }
+
+    @Override
+    public Color getCurrentColor() {
+        return Color.BLACK;
+    }
+
+    @Override
+    public void setLineDashes(double... dashes) {
+
+    }
+
 }

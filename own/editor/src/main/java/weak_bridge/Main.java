@@ -13,10 +13,14 @@ import javafx.scene.control.TextArea;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.ColumnConstraints;
 import javafx.scene.layout.GridPane;
+import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import weak_bridge.drawer.console.ConsoleDrawer;
 import weak_bridge.drawer.javafx.JavaFXDrawer;
 import weak_bridge.shape.*;
+import weak_bridge.shape.composite.CompositeShape;
+import weak_bridge.shape.decorator.ColorBorderDecorator;
+import weak_bridge.shape.decorator.DottedLineDecorator;
 
 public class Main extends Application {
 
@@ -61,19 +65,19 @@ public class Main extends Application {
 
         Circle c1 = (Circle) circle_prototype.clone();
         c1.initialize(50, 200, 300);
-//        shapeCollection.add(c1);
+        shapeCollection.add(c1);
 
         Triangle t1 = (Triangle) triangle_prototype.clone();
         t1.initialize(200, 100, 10, 10, 100, 100);
-//        shapeCollection.add(t1);
+        shapeCollection.add(new ColorBorderDecorator(t1, Color.BLUE));
 
         CompositeShape cs1 = (CompositeShape) compositeShape_prototype.clone();
         cs1.add(c1);
-        cs1.add(t1);
-        shapeCollection.add(cs1);
+        cs1.add(r2);
+        shapeCollection.add(new DottedLineDecorator(new ColorBorderDecorator((cs1), Color.RED)));
 
         for (Shape shape : shapeCollection.getShapes()) {
-            shape.draw(consoleDrawer);
+//            shape.draw(consoleDrawer);
             shape.draw(javaFXDrawer);
         }
     }

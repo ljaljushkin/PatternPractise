@@ -1,6 +1,7 @@
-package weak_bridge.shape;
+package weak_bridge.shape.composite;
 
 import weak_bridge.drawer.IDrawer;
+import weak_bridge.shape.Shape;
 
 import java.util.ArrayList;
 import java.util.List;
