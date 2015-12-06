@@ -17,6 +17,7 @@ import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import weak_bridge.drawer.console.ConsoleDrawer;
 import weak_bridge.drawer.javafx.JavaFXDrawer;
+import weak_bridge.registry.ShapeRegistry;
 import weak_bridge.shape.*;
 import weak_bridge.shape.composite.CompositeShape;
 import weak_bridge.shape.decorator.ColorBorderDecorator;
@@ -24,6 +25,10 @@ import weak_bridge.shape.decorator.DottedLineDecorator;
 
 public class Main extends Application {
 
+    private static final String CIRCLE_KEY = Circle.class.toString();
+    private static final String TRIANGLE_KEY = Triangle.class.toString();
+    private static final String RECTANGLE_KEY = Rectangle.class.toString();
+    private static final String COMPOSITE_SHAPE_KEY = CompositeShape.class.toString();
     Button acceptScale;
     Button acceptAlpha;
 
@@ -44,34 +49,29 @@ public class Main extends Application {
         createAndShowGui(stage);
 
         ShapeCollection shapeCollection = new ShapeCollection();
-
         ConsoleDrawer consoleDrawer = new ConsoleDrawer();
         JavaFXDrawer javaFXDrawer = new JavaFXDrawer(canvas, graphicsContext);
-
         setListeners(javaFXDrawer, shapeCollection);
 
-        Rectangle rectangle_prototype = new Rectangle();
-        Circle circle_prototype = new Circle();
-        Triangle triangle_prototype = new Triangle();
-        CompositeShape compositeShape_prototype = new CompositeShape();
+        ShapeRegistry shapeRegistry = initShapeRegistry();
 
-        Rectangle r1 = (Rectangle) rectangle_prototype.clone();
+        Rectangle r1 = (Rectangle) shapeRegistry.get(RECTANGLE_KEY);
         r1.initialize(300, 200, 100, 100);
         shapeCollection.add(r1);
 
-        Rectangle r2 = (Rectangle) rectangle_prototype.clone();
+        Rectangle r2 = (Rectangle) shapeRegistry.get(RECTANGLE_KEY);
         r2.initialize(150, 100, 10, 100);
-        shapeCollection.add(r2);
+//        shapeCollection.add(r2);
 
-        Circle c1 = (Circle) circle_prototype.clone();
+        Circle c1 = (Circle) shapeRegistry.get(CIRCLE_KEY);
         c1.initialize(50, 200, 300);
-        shapeCollection.add(c1);
+//        shapeCollection.add(c1);
 
-        Triangle t1 = (Triangle) triangle_prototype.clone();
+        Triangle t1 = (Triangle) shapeRegistry.get(TRIANGLE_KEY);
         t1.initialize(200, 100, 10, 10, 100, 100);
         shapeCollection.add(new ColorBorderDecorator(t1, Color.BLUE));
 
-        CompositeShape cs1 = (CompositeShape) compositeShape_prototype.clone();
+        CompositeShape cs1 = (CompositeShape) shapeRegistry.get(COMPOSITE_SHAPE_KEY);
         cs1.add(c1);
         cs1.add(r2);
         shapeCollection.add(new DottedLineDecorator(new ColorBorderDecorator((cs1), Color.RED)));
@@ -80,6 +80,15 @@ public class Main extends Application {
 //            shape.draw(consoleDrawer);
             shape.draw(javaFXDrawer);
         }
+    }
+
+    private ShapeRegistry initShapeRegistry() {
+        ShapeRegistry instance = ShapeRegistry.getInstance();
+        instance.registerPrototype(CIRCLE_KEY, new Circle());
+        instance.registerPrototype(TRIANGLE_KEY, new Triangle());
+        instance.registerPrototype(RECTANGLE_KEY, new Rectangle());
+        instance.registerPrototype(COMPOSITE_SHAPE_KEY, new CompositeShape());
+        return instance;
     }
 
     private void setListeners(final JavaFXDrawer javaFXDrawer, final ShapeCollection shapeCollection) {
