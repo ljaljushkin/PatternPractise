@@ -19,4 +19,14 @@ public class Circle extends Shape {
     public void draw(IDrawer d) {
         d.drawEllipse(x, y, r, r);
     }
+
+    @Override
+    public Double getArea() {
+        return Math.PI * r * r;
+    }
+
+    @Override
+    public Double getPerimeter() {
+        return 2 * Math.PI * r;
+    }
 }

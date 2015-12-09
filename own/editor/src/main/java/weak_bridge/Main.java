@@ -23,6 +23,9 @@ import weak_bridge.shape.composite.CompositeShape;
 import weak_bridge.shape.decorator.ColorBorderDecorator;
 import weak_bridge.shape.decorator.DottedLineDecorator;
 
+import java.util.Collections;
+import java.util.List;
+
 public class Main extends Application {
 
     private static final String CIRCLE_KEY = Circle.class.toString();
@@ -61,14 +64,14 @@ public class Main extends Application {
 
         Rectangle r2 = (Rectangle) shapeRegistry.get(RECTANGLE_KEY);
         r2.initialize(150, 100, 10, 100);
-//        shapeCollection.add(r2);
+        shapeCollection.add(r2);
 
         Circle c1 = (Circle) shapeRegistry.get(CIRCLE_KEY);
         c1.initialize(50, 200, 300);
-//        shapeCollection.add(c1);
+        shapeCollection.add(c1);
 
         Triangle t1 = (Triangle) shapeRegistry.get(TRIANGLE_KEY);
-        t1.initialize(200, 100, 10, 10, 100, 100);
+        t1.initialize(200, 200, 200, 400, 400, 200);
         shapeCollection.add(new ColorBorderDecorator(t1, Color.BLUE));
 
         CompositeShape cs1 = (CompositeShape) shapeRegistry.get(COMPOSITE_SHAPE_KEY);
@@ -77,8 +80,23 @@ public class Main extends Application {
         shapeCollection.add(new DottedLineDecorator(new ColorBorderDecorator((cs1), Color.RED)));
 
         for (Shape shape : shapeCollection.getShapes()) {
-//            shape.draw(consoleDrawer);
+            shape.draw(consoleDrawer);
             shape.draw(javaFXDrawer);
+        }
+
+        for (Shape shape : shapeCollection.getShapes()) {
+            System.out.println("area:" + shape.getArea() + " perimeter:" + shape.getPerimeter());
+        }
+
+        List<Shape> shapeList = shapeCollection.getList();
+        Collections.sort(shapeList, Shape.Comparators.AREA);
+        for (Shape shape : shapeList) {
+            System.out.println("area:" + shape.getArea());
+        }
+
+        Collections.sort(shapeList, Shape.Comparators.PERIMETER);
+        for (Shape shape : shapeList) {
+            System.out.println("perimeter:" + shape.getPerimeter());
         }
     }
 

@@ -17,4 +17,14 @@ public abstract class Decorator extends Shape {
     }
 
     public abstract Decorator clone();
+
+    @Override
+    public Double getArea() {
+        return shape.getArea();
+    }
+
+    @Override
+    public Double getPerimeter() {
+        return shape.getPerimeter();
+    }
 }

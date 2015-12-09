@@ -27,4 +27,14 @@ public class Rectangle extends Shape {
         d.drawLine(x, y + h, x + w, y + h);
         d.drawLine(x + w, y, x + w, y + h);
     }
+
+    @Override
+    public Double getArea() {
+        return (double) (w * h);
+    }
+
+    @Override
+    public Double getPerimeter() {
+        return (double) (2 * (w + h));
+    }
 }

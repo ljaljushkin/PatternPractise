@@ -4,6 +4,7 @@ import weak_bridge.drawer.IDrawer;
 
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.List;
 
 public class ShapeCollection {
 
@@ -25,6 +26,10 @@ public class ShapeCollection {
         for (Shape shape : data) {
             shape.draw(d);
         }
+    }
+
+    public List<Shape> getList() {
+        return new ArrayList<Shape>(data);
     }
 }
 

@@ -18,6 +18,24 @@ public class CompositeShape extends Shape {
         return new CompositeShape();
     }
 
+    @Override
+    public Double getArea() {
+        Double result = (double) 0;
+        for (Shape shape : shapesList) {
+            result += shape.getArea();
+        }
+        return result;
+    }
+
+    @Override
+    public Double getPerimeter() {
+        Double result = (double) 0;
+        for (Shape shape : shapesList) {
+            result += shape.getArea();
+        }
+        return result;
+    }
+
     public void add(Shape shape) {
         shapesList.add(shape);
     }
